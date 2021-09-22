@@ -52,7 +52,9 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-              Text('Running on: $_platformVersion\n'),
+              ElevatedButton(
+                  onPressed: InstallPrompt.showInstallPrompt,
+                  child: Text("Install")),
             ),
       ),
     );

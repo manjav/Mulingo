@@ -2,6 +2,9 @@ package com.grantech.plugins.installprompt;
 
 import androidx.annotation.NonNull;
 
+import android.content.Intent;
+import android.util.Log;
+
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -10,6 +13,7 @@ import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
+import com.google.android.gms.instantapps.InstantApps;
 
 import io.flutter.embedding.android.FlutterActivity;
 
@@ -49,6 +53,12 @@ public class InstallPrompt implements FlutterPlugin, MethodCallHandler, Activity
             String referrer = call.argument("referrer");
             String packageName = activity.getApplicationContext().getPackageName();
             Log.d("DART/NATIVE", "referrer " + referrer + " packageName " + packageName);
+            Intent postInstallIntent = new Intent(Intent.ACTION_MAIN)
+                    .addCategory(Intent.CATEGORY_DEFAULT)
+                    .setPackage(packageName);
+
+            // Prompt for pre-registration
+            InstantApps.showInstallPrompt(activity, postInstallIntent, 7, referrer);
         } else {
             result.notImplemented();
         }
