@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plugin/installprompt.dart';
+import 'package:plugin/install_prompt.dart';
 
 void main() => runApp(MyApp());
 
