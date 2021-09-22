@@ -1,6 +1,6 @@
 # install_prompt
 
-Demonstrates how to use the plugin plugin.
+Demonstrates how to use the install_prompt plugin.
 
 ## Getting Started
 
