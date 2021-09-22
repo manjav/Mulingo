@@ -10,6 +10,9 @@ import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
+
+import io.flutter.embedding.android.FlutterActivity;
+
 /**
  * InstallPrompt
  */
@@ -19,6 +22,8 @@ public class InstallPrompt implements FlutterPlugin, MethodCallHandler, Activity
     /// This local reference serves to register the plugin with the Flutter Engine and unregister it
     /// when the Flutter Engine is detached from the Activity
     private MethodChannel channel;
+    private FlutterActivity activity;
+
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
         channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "installprompt");
@@ -27,6 +32,9 @@ public class InstallPrompt implements FlutterPlugin, MethodCallHandler, Activity
 
     @Override
     public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
+        //here we have access to activity
+        activity = (FlutterActivity) binding.getActivity();
+    }
 
     @Override
     public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding binding) {}
@@ -37,6 +45,10 @@ public class InstallPrompt implements FlutterPlugin, MethodCallHandler, Activity
 
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
+        if (call.method.equals("showInstallPrompt")) {
+        } else {
+            result.notImplemented();
+        }
     }
 
     @Override
