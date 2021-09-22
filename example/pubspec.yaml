@@ -1,4 +1,4 @@
-name: install_prompt
+name: install_prompt_example
 description: prompt install apk for Instant Apps.
 
 # The following line prevents the package from being accidentally published to
@@ -12,9 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  plugin:
+  install_prompt:
     # When depending on this package from a real application you should use:
-    #   plugin: ^x.y.z
+    #   install_prompt: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
     # The example app is bundled with the plugin so we use a path dependency on
     # the parent directory to use the current plugin's version.
