@@ -1,7 +1,7 @@
 name: install_prompt
-description: Install apk dialog for Instant Apps.
+description: Install apk dialog for Android instant apps.
 version: 0.0.1
-homepage:
+homepage: https://github.com/manjav/flutter_install_prompt
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -21,5 +21,5 @@ flutter:
       android:
         package: com.grantech.plugins.installprompt
         pluginClass: InstallPrompt
-      ios:
-        pluginClass: InstallPrompt
+      # ios:
+      #   pluginClass: InstallPrompt
