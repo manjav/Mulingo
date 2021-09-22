@@ -21,5 +21,3 @@ flutter:
       android:
         package: com.grantech.plugins.installprompt
         pluginClass: InstallPrompt
-      # ios:
-      #   pluginClass: InstallPrompt
