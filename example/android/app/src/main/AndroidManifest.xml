@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="youpackage">
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    <dist:module dist:instant="true" />
+
     <application
-        android:label="install_prompt"
+        android:label="Install Prompt"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -19,6 +21,15 @@
               android:resource="@style/NormalTheme"
               />
 
+            <meta-data android:name="default-url" android:value="https://your_address" />
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="your_address" />
+                <data android:scheme="http" android:host="your_address" />
+            </intent-filter>
 
             <!-- Displays an Android View that continues showing the launch screen
                  Drawable until Flutter paints its first frame, then this splash
