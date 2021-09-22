@@ -46,6 +46,9 @@ public class InstallPrompt implements FlutterPlugin, MethodCallHandler, Activity
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
         if (call.method.equals("showInstallPrompt")) {
+            String referrer = call.argument("referrer");
+            String packageName = activity.getApplicationContext().getPackageName();
+            Log.d("DART/NATIVE", "referrer " + referrer + " packageName " + packageName);
         } else {
             result.notImplemented();
         }
